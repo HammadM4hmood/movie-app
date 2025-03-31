@@ -58,7 +58,7 @@ const Movie = ({ movie }) => {
       <p>{movie.description}</p>
       <div className="pt-5">
         <button
-          className="text-blue-700 mr-3"
+          className="text-white mr-3 bg-blue-500 rounded"
           onClick={() => {
             setShowModalEdit(true);
             setMovieToEdit(movie);
@@ -100,7 +100,7 @@ const Movie = ({ movie }) => {
           </form>
         </Modal>
         <button
-          className="text-red-700 mr-3"
+          className="text-white mr-3 rounded bg-red-600"
           onClick={() => setShowDeleteModal(true)}
         >
           Delete
@@ -112,14 +112,14 @@ const Movie = ({ movie }) => {
             </h1>
             <div className="space-x-4">
               <button
-                className="text-blue-700 font-bold"
+                className="text-blue-700 font-bold border-2 border-solid bg-blue-200 rounded"
                 onClick={() => handleDeleteMovie(movie.id)}
               >
                 {" "}
                 Yes
               </button>
               <button
-                className="text-red-700 font-bold"
+                className="text-red-700 font-bold border-2 border-solid bg-red-200 rounded"
                 onClick={() => setShowDeleteModal(false)}
               >
                 {" "}

@@ -40,38 +40,38 @@ const AddMovie = () => {
     <div>
       <button
         onClick={() => setShowModal(true)}
-        className="bg-blue-700 text-white p-3 cursor-pointer"
+        className="bg-blue-700 text-white p-3 cursor-pointer rounded-2xl"
       >
         Add Movie
       </button>
       <Modal showModal={showModal} setShowModal={setShowModal}>
         <form className="w-full px-5 pb-6" onSubmit={handleSubmit}>
-          <h1>Add or Update a Movie</h1>
+          <h1 className="mb-2 underline">Add or Update a Movie</h1>
           <input
             type="text"
-            placeholder="title"
+            placeholder="Title"
             name="title"
-            className="w-full p-2 mb-3"
+            className="w-full p-2 mb-3 bg-white rounded-full"
             value={input.title || ""}
             onChange={handleChange}
           />
           <input
             type="text"
-            placeholder="actors"
+            placeholder="Actors"
             name="actors"
-            className="w-full p-2 mb-3"
+            className="w-full p-2 mb-3 bg-white rounded-full"
             value={input.actors || ""}
             onChange={handleChange}
           />
           <input
             type="integer"
-            placeholder="releaseYear"
+            placeholder="Release Year"
             name="releaseYear"
-            className="w-full p-2 mb-3"
+            className="w-full p-2 mb-3 bg-white rounded-full"
             value={input.releaseYear || ""}
             onChange={handleChange}
           />
-          <button type="submit" className="bg-blue-700 text-white px-5 py-2">
+          <button type="submit" className="bg-blue-700 text-white px-5 py-2 rounded-4xl">
             Submit
           </button>
         </form>
