@@ -1,5 +1,5 @@
-import Navbar from './components/Navbar'
 import AddMovie from './components/AddMovie'
+import MovieList from './components/MovieList'
 
 async function getData() {
   const res = await fetch('http://localhost:3000/api/movies', {cache: "no-cache"})
@@ -10,11 +10,12 @@ async function getData() {
 }
 const page = async() =>{
 
-  const posts = await getData()
-  console.log(posts)
+  const movies = await getData()
+  console.log(movies)
   return (
     <main className="flex min-h-screen flex-col justify-between p-24">
     <AddMovie/>
+    <MovieList movie={movies}/>
     </main>
   );
 }

@@ -1,25 +1,27 @@
 import client from "@/app/libs/prismadb";
 import { NextResponse } from "next/server";
 
-export const GET = async (request, { params }) => {
+export const GET = async (request, context) => {
   try {
-    const { id } = params;
+    const { params } = context; 
+    const { id } = params; 
+
     const movie = await client.movie.findUnique({
-      where: {
-        id
-      }
+      where: { id },
     });
+
     if (!movie) {
-      return NextResponse.json({ status: 404 }, { message: "Movie not found" });
+      return NextResponse.json({ message: "Movie not found" }, { status: 404 });
     }
+
     return NextResponse.json(movie);
   } catch (error) {
-    return NextResponse.json(
-      { status: 500 },
-      { message: "Error getting movie", error }
-    );
+    console.error("Error fetching movie:", error);
+    return NextResponse.json({ message: "Error getting movie", error }, { status: 500 });
   }
 };
+
+
 
 export const PATCH = async (request, { params }) => {
   try {
@@ -38,7 +40,7 @@ export const PATCH = async (request, { params }) => {
       }
     });
     if (!editMovie) {
-      return NextResponse.json({ status: 404 }, { message: "Movie not found" });
+      return NextResponse.json({ message: "Movie not found" }, { status: 404 });
     }
     return NextResponse.json(editMovie);
   } catch (error) {
@@ -59,9 +61,6 @@ export const DELETE = async (request, { params }) => {
     });
     return NextResponse.json({ status: 200 }, { message: "Movie deleted" });
   } catch (error) {
-    return NextResponse.json(
-      { status: 500 },
-      { message: "Error deleting movie", error }
-    );
+    return NextResponse.json({ message: "Movie not found" }, { status: 500 });
   }
 };
