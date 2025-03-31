@@ -11,8 +11,8 @@ export const POST = async (req) => {
       data: {
         title,
         actors,
-        releaseYear,
-      },
+        releaseYear
+      }
     });
     return NextResponse.json(newMovie);
   } catch (error) {
