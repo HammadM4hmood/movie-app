@@ -6,11 +6,11 @@ export const GET = async (request, { params }) => {
     const { id } = params;
     const movie = await client.movie.findUnique({
       where: {
-        id,
-      },
+        id
+      }
     });
     if (!movie) {
-      return NextResponse.json({ status: 404 }, { message: "Post not found" });
+      return NextResponse.json({ status: 404 }, { message: "Movie not found" });
     }
     return NextResponse.json(movie);
   } catch (error) {
@@ -27,20 +27,20 @@ export const PATCH = async (request, { params }) => {
     const { id } = params;
     const { title, actors, releaseYear } = body;
 
-    const updatePost = await client.movie.update({
+    const editMovie = await client.movie.update({
       where: {
-        id,
+        id
       },
       data: {
         title,
         actors,
-        releaseYear,
-      },
+        releaseYear
+      }
     });
-    if (!updatePost) {
+    if (!editMovie) {
       return NextResponse.json({ status: 404 }, { message: "Movie not found" });
     }
-    return NextResponse.json(updatePost);
+    return NextResponse.json(editMovie);
   } catch (error) {
     return NextResponse.json(
       { status: 500 },
@@ -52,10 +52,10 @@ export const PATCH = async (request, { params }) => {
 export const DELETE = async (request, { params }) => {
   try {
     const { id } = params;
-    await client.post.delete({
+    await client.movie.delete({
       where: {
-        id,
-      },
+        id
+      }
     });
     return NextResponse.json({ status: 200 }, { message: "Movie deleted" });
   } catch (error) {
