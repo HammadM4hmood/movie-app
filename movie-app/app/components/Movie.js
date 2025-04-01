@@ -1,3 +1,14 @@
+/** Christopher Findlay, Hammad Mahmood, Samuel Kyle Yung, Gurnoor Singh | April 1st, 2025
+ * Assignment 3 - Full-Stack Web Application
+ *
+ * This component, movie.js, is responsible for displaying individual movie details
+ * and providing functionality to edit or delete a movie. It receives a 'movie' object as a prop
+ * containing movie information like title, actors, and release year. The component utilizes state
+ * to manage the visibility of edit and delete modal dialogs and interacts with a backend API
+ * using 'axios' for updating and deleting movie data. Upon successful modification or deletion,
+ * the component triggers a page refresh using the Next.js `useRouter` hook.
+ */
+
 "use client";
 import React from "react";
 import Modal from "./Modal";

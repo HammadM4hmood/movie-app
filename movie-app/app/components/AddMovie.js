@@ -1,3 +1,14 @@
+/** Christopher Findlay, Hammad Mahmood, Samuel Kyle Yung, Gurnoor Singh | April 1st, 2025
+ * Assignment 3 - Full-Stack Web Application
+ * 
+ * This compenent is the component that is used too add movie. When the use clicks on "Add Moive"
+ * a modal will pop-up asking the user to fill in inputs. It asks the user to input the title of the movie,
+ * the actors, and release date. If it encounters an error, it will log it to the console. When the button is
+ * clicked, it'll send a POST to the endpoint "api/movies" and stores them. On successful submission, the form
+ * resets and the movie list is refreshed.
+ * 
+ */
+
 "use client";
 import React from "react";
 import Modal from "./Modal";
