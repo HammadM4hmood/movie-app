@@ -42,6 +42,13 @@ const Movie = ({ movie }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
+    if (name === "actors") {
+      const regex = /^[A-Za-z\s-,]*$/;
+      if (!regex.test(value)) {
+        return;
+      }
+    }
+
     setMovieToEdit((prevState) => ({
       ...prevState,
       [name]: name === "releaseYear" ? parseInt(value, 10) || "" : value,
@@ -97,6 +104,7 @@ const Movie = ({ movie }) => {
                 className="w-full p-2 mb-3 border border-gray-300  bg-gray-200 rounded-lg"
                 value={movieToEdit.actors}
                 onChange={handleChange}
+                pattern="[A-Za-z\\s-,]+"
               />
               <input
                 type="number"
