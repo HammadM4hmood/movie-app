@@ -23,6 +23,13 @@ const AddMovie = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    if (name === "actors") {
+      const regex = /^[A-Za-z\s-,]*$/;
+      if (!regex.test(value)) {
+        return;
+      }
+    }
   
     setInput((prevState) => ({
       ...prevState,
@@ -68,11 +75,12 @@ const AddMovie = () => {
           />
           <input
             type="text"
-            placeholder="Actors"
+            placeholder="Actors (Use comma for multiple actors)"
             name="actors"
             className="w-full p-2 mb-3 bg-white rounded-full"
             value={input.actors || ""}
             onChange={handleChange}
+            pattern="[A-Za-z\\s-,]+"
           />
           <input
             type="integer"
