@@ -1,6 +1,11 @@
 import client from "@/app/libs/prismadb";
 import { NextResponse } from "next/server";
 
+/**
+ * @param {object} request request object
+ * @param {object} param1 url and id (http://localhost:3000/api/movies/{id}) 
+ * @returns {JSON} the movie with the given id
+ */
 export const GET = async (request, context) => {
   try {
     const { params } = context; 
@@ -22,7 +27,11 @@ export const GET = async (request, context) => {
 };
 
 
-
+/**
+ * @param {object} request request object
+ * @param {object} param1 url and id (http://localhost:3000/api/movies/{id})
+ * @returns {JSON} updated movie
+ */
 export const PATCH = async (request, { params }) => {
   try {
     const body = await request.json();
@@ -51,6 +60,12 @@ export const PATCH = async (request, { params }) => {
   }
 };
 
+/**
+ * @param {object} request request object 
+ * @param {object} param1 url and id (http://localhost:3000/api/movies/{id})
+ * @description delete a movie from the database
+ * @returns {JSON} status 200 if successful, 500 if error
+ */
 export const DELETE = async (request, { params }) => {
   try {
     const { id } = params;

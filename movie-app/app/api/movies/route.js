@@ -3,6 +3,14 @@ import { NextResponse } from "next/server";
 
 // url: http://localhost:3000/api/movies
 
+/**
+ * @param {
+ *  title: string,
+ *  actors: string,
+ *  releaseYear: number
+ * } req
+ * @returns {JSON} updated database
+ */
 export const POST = async (req) => {
   try {
     const body = await req.json();
@@ -24,6 +32,7 @@ export const POST = async (req) => {
   }
 };
 
+// Retrieve all movies from the database
 export const GET = async () => {
   try {
     const movies = await client.movie.findMany();

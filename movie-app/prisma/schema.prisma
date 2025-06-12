@@ -1,8 +1,11 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+/** Christopher Findlay, Hammad Mahmood, Samuel Kyle Yung, Gurnoor Singh | April 1st, 2025
+ * Assignment 3 - Full-Stack Web Application
+ *
+ * This is the prisma schema to connect the code to MongoDB. It requires either a .env or a .env.local file to
+ * connect to the database. It also lays outs the information that MongoDB will take (id, title, actors, release year
+ * createdAt, updatedAt). I'll take in the DATABASE_URL stored in the .env/.env.local file and retrieves the
+ * cluster from MongoDB
+ */
 
 generator client {
   provider = "prisma-client-js"
